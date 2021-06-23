@@ -1,0 +1,33 @@
+<app-home></app-home>
+<!--<button [routerLink]="['/sectors']" routerLinkActive="router-link-active" class="btn btn-primary" *ngIf="isAdmin">
+    Back to List of Sectors
+</button>
+<div *ngIf="!isAdmin">
+  <h4>You Are not Authorized to access this page</h4>
+  <button class="btn btn-primary" [routerLink]="['/home']" routerLinkActive="router-link-active" >Click to redirect to the home page</button>
+</div>
+-->
+
+<div class="card" style="margin-right: 15%;margin-top: 2%; margin-left: 15%;">
+    <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">Enter the Sector Details</h5>
+
+  <form #addsector="ngForm">
+
+    <div class="form-group row"><label for="sectorName" class="col-sm-2 col-form-label">Sector Name</label>
+      <div class="col-sm-10">
+      <input type="text" class="form-control" name="name" placeholder="Sector Name" #name = "ngModel" [(ngModel)]="sector.name">
+    </div></div>
+    <br/>
+
+    <div class="form-group row"><label for="description" class="col-sm-2 col-form-label">Sector Description</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="description" placeholder="Sector Description" #description = "ngModel" [(ngModel)]="sector.description">
+      </div></div>
+      <br/>
+
+    <div *ngIf="!isEdit"><button type="submit" value = "submit"class="form-control btn btn-primary" (click)="onClickSubmit(addsector.value)">Submit</button></div>
+    <div *ngIf="isEdit"><button type="submit" value = "submit"class="form-control btn btn-warning" (click)="onClickUpdate(addsector.value)">Update</button></div>
+  </form>
+</div>
+</div>

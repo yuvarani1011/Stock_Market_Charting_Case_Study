@@ -1,0 +1,18 @@
+
+  <div class="card" style="margin-left: 28%;margin-top:3%;margin-right: 28%;">
+    <img class="card-img-top" src="../../../assets/bse-building.jpg" alt="">
+    <div class="card-body">
+      <h4 class="card-title">Stock Market Charting Application</h4>
+      <p class="card-text" *ngIf="(auth.isAuthenticated$ | async) === false">Login to start using the application</p>
+      
+
+      <button *ngIf="(auth.isAuthenticated$ | async) === false" class="btn btn-dark btn-block" (click)="loginWithRedirect()">
+        Log in
+      </button>
+
+      <p *ngIf="isEmailVerified===false">Please verify your Email to Proceed</p>
+
+      <p *ngIf="(auth.isAuthenticated$ | async)&&isEmailVerified">Successfully Logged in, Click on the below link to proceed</p>
+      <a *ngIf="(auth.isAuthenticated$ | async)&&isEmailVerified" [routerLink]="['/home']" class="btn btn-primary">Click here!</a>
+    </div>
+  </div>

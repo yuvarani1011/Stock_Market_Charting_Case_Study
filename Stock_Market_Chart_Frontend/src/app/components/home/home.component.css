@@ -1,0 +1,12 @@
+nav{
+    background-color:  #667dff;
+}
+
+.nav-item{
+    margin-top: 5px;
+}
+
+.navbar-text{
+    margin-top: 2px;
+    text-emphasis-color: white;
+}

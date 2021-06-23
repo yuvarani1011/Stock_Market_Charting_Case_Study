@@ -1,0 +1,84 @@
+
+<app-home></app-home>
+
+
+<div class="card" style="margin-right: 15%;margin-top: 2%; margin-left: 15%;" >
+  <div class="card-body">
+      <h5 class="card-title" style="text-align: center;">Comparison Charts</h5>
+
+<form #compare = "ngForm">
+
+  <div class="form-group row"><label for="stockExchangeName" class="col-sm-2 col-form-label">Select Stock Exchange</label>
+    <div class="col-sm-10">
+    <select type="text" class="form-control" id="selectstockexchange" placeholder="Stock Exchange Name" name="stockexchangename" #stockexchangename="ngModel" [(ngModel)]="comparison.stockExchangeName">
+    <option value="BSE">BSE</option>
+    <option value="NSE">NSE</option>
+    </select>
+  </div></div>
+  <br/>
+
+  <div class="form-group row"><label for="CompanyName" class="col-sm-2 col-form-label">Select Company</label>
+    <div class="col-sm-10">
+    <select type="text" class="form-control" name="companycode" #companycode="ngModel" [(ngModel)]="comparison.code" required>
+      <option value={{company.code}} *ngFor="let company of companies">{{company.name}}</option>
+    </select>
+  </div></div>
+  <br/>
+
+  <div class="form-group row"><label for="fromPeriod" class="col-sm-2 col-form-label">From period</label>
+    <div class="col-sm-10">
+    <input type="date" class="form-control" id="fromperiod" placeholder="" name="from" #from="ngModel" [(ngModel)]="comparison.fromPeriod">
+  </div></div>
+  <br/>
+
+  <div class="form-group row"><label for="toPeriod" class="col-sm-2 col-form-label">To period</label>
+    <div class="col-sm-10">
+    <input type="date" class="form-control" id="toperiod" placeholder="" name="to" #to="ngModel" [(ngModel)]="comparison.toPeriod">
+  </div></div>
+  <br/>
+      
+    <a type="submit" value="submit" class="btn btn-primary card-link" (click)="onClickSubmit(compare.value)" style="left: 80%;position: absolute;">Submit</a>
+    <a type="submit" value="submit" class= "btn btn-warning card-link" (click)="onClickCompare(compare.value)" style="right: 0%;position: absolute;">Compare</a>
+  
+  </form>
+</div>
+</div>
+<br>
+
+<div class="form-check" style="margin-left: 15%;">
+  <input class="form-check-input" type="radio" name="line" id="flexRadioDefault1" value='line' #line="ngModel" [(ngModel)]="type">
+  <label class="form-check-label" for="flexRadioDefault1">
+    <p style="color:white;">Line Chart</p>
+  </label>
+</div>
+<div class="form-check" style="margin-left: 15%;">
+  <input class="form-check-input" type="radio" name="bar" id="flexRadioDefault2" checked value='bar' #bar="ngModel" [(ngModel)]="type">
+  <label class="form-check-label" for="flexRadioDefault2">
+    <p style="color:white;">Bar Chart</p>
+  </label>
+</div>
+
+<br>
+
+<div class="chart-wrapper w-50 p-20" style="margin-left: 25%; background-color: cornsilk;">
+  <canvas baseChart 
+      [datasets]="chartData" 
+      [labels]="chartLabels"  
+      [legend]="true" 
+       [chartType]="type"
+       [options]="chartOptions"
+      >
+  </canvas>
+</div>   
+
+ 
+
+
+
+
+
+ 
+
+
+
+

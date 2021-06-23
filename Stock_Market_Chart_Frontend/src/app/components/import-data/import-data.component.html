@@ -1,0 +1,33 @@
+<app-home></app-home>
+<br>
+<form>
+  <div class="card" style="margin-right: 15%;margin-top: 2%; margin-left: 15%; text-align: center;" >
+    <div class="card-body">
+        <h5 class="card-title">Import Data from Excel Sheet</h5>
+        <br/>
+      <input id="fileSelect" type="file" (change)="onUpload($event)" id="excel" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />       
+      <br/><br/>
+      <small id="emailHelp" class="form-text text-muted">Upload your Excel Sheet</small>
+    </div></div>
+  
+  </form>
+
+  <div class="row"  *ngIf="isUploaded" style="margin-right: 35%;margin-top: 2%; margin-left: 35%; text-align: center;">
+    <div class="column">
+        <div class="card" style="width: 18rem;">
+
+            <div class="card-body">
+              <h5 class="card-title">{{stockExchangeName}}</h5>
+              <br>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Company Code : {{companyCode}}</li>
+              <li class="list-group-item">From : {{fromDate}}</li>
+              <li class="list-group-item">To : {{toDate}}</li>
+              <li class="list-group-item">Record : {{numberOfRecords}}</li>
+            </ul>
+            
+        </div>
+    </div>
+
+</div>

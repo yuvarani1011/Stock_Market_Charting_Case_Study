@@ -1,0 +1,71 @@
+<!--<app-home *ngIf="isAdmin"></app-home>
+<button [routerLink]="['/companies']" routerLinkActive="router-link-active" class="btn btn-primary" *ngIf="isAdmin">Back to List of Companies</button>
+
+<div *ngIf="!isAdmin">
+  <h4>You are not Authorized to access this page</h4>
+  <button class="btn btn-primary" [routerLink]="['/home']" routerLinkActive="router-link-active" >
+  Click to redirect to Homepage
+  </button>
+</div>-->
+<app-home></app-home>
+
+
+<div class="card" style="margin-right: 15%;margin-top: 2%; margin-left: 15%;" >
+    <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">Enter the Company Details</h5>
+
+<form #addcompany = "ngForm">
+
+    <div class="form-group row"><label for="companyName" class="col-sm-2 col-form-label">Company Name</label>
+      <div class="col-sm-10">
+      <input type="text" class="form-control" name="name" placeholder="Company Name" #name="ngModel"  [(ngModel)]="company.name">
+    </div></div>
+    <br/>
+
+    <div class="form-group row"><label for="companyCode" class="col-sm-2 col-form-label">Company Code</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" name="code" placeholder="Company Code"  #code="ngModel" [(ngModel)]="company.code">
+      </div></div>
+      <br/>
+
+      <div class="form-group row"><label for="turnover" class="col-sm-2 col-form-label">Turnover</label>
+        <div class="col-sm-10">
+        <input type="text" class="form-control" name="turnover" placeholder="Company Turnover"  #turnover="ngModel" [(ngModel)]="company.turnover">
+      </div></div>
+      <br/>
+
+      <div class="form-group row"><label for="ceo" class="col-sm-2 col-form-label">CEO</label>
+        <div class="col-sm-10">
+        <input type="text" class="form-control" name="ceo" placeholder="Chief Executive Officer"  #ceo="ngModel" [(ngModel)]="company.ceo">
+      </div></div>
+      <br/>
+
+      <div class="form-group row"><label for="boardOfDirectors" class="col-sm-2 col-form-label">Board of Directors</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="boardOfDirectors" placeholder="Board of Directors"  #boardOfDirectors="ngModel" [(ngModel)]="company.boardOfDirectors">
+      </div></div>
+      <br/>
+
+      <div class="form-group row"><label for="stockExchangeNames" class="col-sm-2 col-form-label">Stock Exchanges</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="stockExchangeNames" placeholder="Stock Exchanges"  #stockExchangeNames="ngModel" [(ngModel)]="company.stockExchangeNames">
+      </div></div>
+      <br/>
+
+
+      <div class="form-group row"><label for="sectorName" class="col-sm-2 col-form-label">Sector Name</label>
+        <div class="col-sm-10">
+        <input type="text" class="form-control" name="sectorName" placeholder="Sector Name"  #sectorName="ngModel" [(ngModel)]="company.sectorName">
+      </div></div>
+      <br/>
+
+      <div class="form-group row"><label for="description" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="description" placeholder="Company Description"  #description="ngModel" [(ngModel)]="company.description">
+      </div></div>
+      <br/>
+      <div *ngIf="!isEdit"><button type="submit" class="form-control btn btn-primary" value="submit" (click)="onClickSubmit(addcompany.value)">Submit</button></div>
+      <div *ngIf="isEdit"><button type="submit" class="form-control btn btn-warning" value="submit" (click)="onClickUpdate(addcompany.value)">Update</button></div>
+  </form>
+</div>
+</div>

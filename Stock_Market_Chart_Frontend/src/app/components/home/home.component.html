@@ -1,0 +1,33 @@
+
+<nav class="navbar">
+    <!-- Navbar content -->
+    <ul class="nav nav-pills flex-column flex-sm-row">
+        <li class="navbar-text text-white" style="margin-left: 5px;">
+        <h5>Stock Market Charting</h5> 
+        </li>
+        <li class="nav-item">
+          <a routerLink="/import-data" class="flex-sm-fill text-sm-center nav-link text-light" href="#">Import Data</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/companies" class="flex-sm-fill text-sm-center nav-link text-light">Companies</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/sectors" class="flex-sm-fill text-sm-center nav-link text-light" href="#">Sectors</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/stock-exchanges" class="flex-sm-fill text-sm-center nav-link text-light" href="#">Stock Exchanges</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/ipos" class="flex-sm-fill text-sm-center nav-link text-light" href="#">IPOs</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/comparison-charts" class="flex-sm-fill text-sm-center nav-link text-light" href="#">Comparison</a>
+          </li>
+          
+          <li class="nav-item text-dark" style="margin-top: 15px;margin-left: 150px;" *ngIf="auth.user$ | async as user">
+            Logged in as<b> {{user.name}} </b></li>
+          <li class="nav-item text-light" style="margin-top: 1px;margin-left: 10px;">
+            <a routerLink="/login" class="flex-sm-fill text-sm-center nav-link" href="#"><app-authentication-button></app-authentication-button></a>
+          </li>
+      </ul>
+  </nav>
